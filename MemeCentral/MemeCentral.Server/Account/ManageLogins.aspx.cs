@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 
+using MemeCentral.Data;
+
 namespace MemeCentral.Server.Account
 {
     public partial class ManageLogins : System.Web.UI.Page

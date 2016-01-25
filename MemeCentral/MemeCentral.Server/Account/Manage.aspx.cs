@@ -8,7 +8,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
-using MemeCentral.Server.Models;
+
+using MemeCentral.Data;
 
 namespace MemeCentral.Server.Account
 {
