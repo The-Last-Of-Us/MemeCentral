@@ -8,14 +8,17 @@ Telerik(Progress) Academy Team Project
 - can add comments to memes
 
 ### Admins 
-- can delete memes/users
+- can delete memes/users(both should be listed as some grid with query over the data)
 - can warn/flag users for some reason (if we have time)
        
 ### Home page 
 - show latest memes + stupid info text (cache it for more points from the trainers :D)
 
 ### Meme page 
-- show memes and provide paging/sorting for all
-       
+- show memes as some grid and provide paging/sorting for all
 
-So far - ASCX user controls - for add like/dislike(AJAX) and for adding comments(AJAX) to a meme
+### AboutUs page
+- our names, links to our repos etc
+
+### Special stuff
+- ASCX user controls - for add like/dislike(AJAX) and for adding comments(AJAX) to a meme. Maybe create the whole meme object as one big control
