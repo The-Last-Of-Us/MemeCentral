@@ -93,7 +93,7 @@ namespace MemeCentral.Data
 
 		public override Task<ClaimsIdentity> CreateUserIdentityAsync(User user)
 		{
-			return user.GenerateUserIdentityAsync((UserManager)this.UserManager);
+			return user.GenerateUserIdentityAsync((ApplicationUserManager)this.UserManager);
 		}
 
 		public static ApplicationSignInManager Create(IdentityFactoryOptions<ApplicationSignInManager> options, IOwinContext context)

@@ -4,7 +4,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Owin;
-using MemeCentral.Server.Models;
+
+using MemeCentral.Data;
+using MemeCentral.Data.Models;
 
 namespace MemeCentral.Server.Account
 {
@@ -93,7 +95,7 @@ namespace MemeCentral.Server.Account
             }
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
-            var user = new ApplicationUser() { UserName = email.Text, Email = email.Text };
+            var user = new User() { UserName = email.Text, Email = email.Text };
             IdentityResult result = manager.Create(user);
             if (result.Succeeded)
             {

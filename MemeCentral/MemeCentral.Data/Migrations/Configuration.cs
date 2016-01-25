@@ -6,7 +6,8 @@ namespace MemeCentral.Data.Migrations
     {
         public Configuration()
         {
-            this.AutomaticMigrationsEnabled = false;
+            this.AutomaticMigrationsEnabled = true;
+            this.AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(MemeDbContext context)

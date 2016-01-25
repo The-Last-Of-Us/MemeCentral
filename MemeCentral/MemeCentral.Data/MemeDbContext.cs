@@ -16,5 +16,11 @@ namespace MemeCentral.Data
 		public virtual IDbSet<Meme> Memes { get; set; }
 
 		public virtual IDbSet<Comment> Comments { get; set; }
+
+
+		public static MemeDbContext Create()
+		{
+			return new MemeDbContext();
+		}
 	}
 }
