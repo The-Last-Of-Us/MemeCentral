@@ -11,6 +11,11 @@ namespace MemeCentral.Data.Models
 		public virtual Meme Meme { get; set; }
 
 		[Required]
+		public string UserId { get; set; }
+
+		public virtual User User { get; set; }
+
+		[Required]
 		[MaxLength(200)]
 		public string Content { get; set; }
 	}

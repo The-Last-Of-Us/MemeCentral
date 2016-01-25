@@ -17,10 +17,18 @@ namespace MemeCentral.Data
 
 		public virtual IDbSet<Comment> Comments { get; set; }
 
-
 		public static MemeDbContext Create()
 		{
 			return new MemeDbContext();
+		}
+
+		protected override void OnModelCreating(DbModelBuilder modelBuilder)
+		{
+			//modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+			//modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
+			modelBuilder.Entity<Comment>().HasRequired(comment => comment.User).WithMany().WillCascadeOnDelete(false);
+			base.OnModelCreating(modelBuilder);
 		}
 	}
 }

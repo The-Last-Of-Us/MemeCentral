@@ -1,5 +1,6 @@
 ﻿namespace MemeCentral.Server
 {
+	using System.Linq;
 	using System.Data.Entity;
 
 	using Data;
@@ -14,15 +15,7 @@
 
 			using (var db = new MemeDbContext())
 			{
-				db.Memes.Add(new Meme
-				{
-					Title = "Test Meme",
-					ImageUrl = "www.testing.com",
-					Likes = 5,
-					Dislikes = 2
-				});
-
-				db.SaveChanges();
+				db.Users.FirstOrDefault();
 			}
 		}
 	}
