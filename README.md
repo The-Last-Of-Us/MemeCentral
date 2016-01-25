@@ -17,6 +17,11 @@ Telerik(Progress) Academy Team Project
 ### Meme page 
 - show memes as some grid and provide paging/sorting for all
 
+### Meme details page
+- show meme img/author comment
+- Likes + ability to like/dislike
+- Comments + ability to comment
+
 ### AboutUs page
 - our names, links to our repos etc
 
