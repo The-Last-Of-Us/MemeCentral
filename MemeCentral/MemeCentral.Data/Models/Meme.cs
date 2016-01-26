@@ -1,5 +1,6 @@
 namespace MemeCentral.Data.Models
 {
+	using System;
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 
@@ -31,6 +32,8 @@ namespace MemeCentral.Data.Models
 		public int Likes { get; set; }
 
 		public int Dislikes { get; set; }
+
+		public DateTime CreationDate { get; set; }
 
 		public virtual ICollection<Comment> Comments
 		{
