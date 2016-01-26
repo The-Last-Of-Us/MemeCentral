@@ -1,8 +1,3 @@
-# <?xml version="1.0"?>
-# <connectionStrings>
-#   <add name="MemeCentral" connectionString="Server=.\SQLEXPRESS;Database=MemeCentral;Integrated Security=true;" providerName="System.Data.SqlClient" />
-# </connectionStrings>
-
 ConnectionStrings.config
 
 # Created by https://www.gitignore.io/api/webstorm,visualstudio
