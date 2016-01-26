@@ -29,8 +29,11 @@
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            this.AllComments.DataSource = this.Comments;
-            this.AllComments.DataBind();
+            if(this.Comments != null)
+            {
+                this.AllComments.DataSource = this.Comments;
+                this.AllComments.DataBind();
+            }
 
         }
 

@@ -16,7 +16,7 @@
                 <ItemTemplate>
                     <div class="col-md-12 commentMessage">
                         <%#:Item.Content %>
-                        <a href=""><%#: Item.User.UserName %></a>
+                        
                         <hr />
                     </div>
                 </ItemTemplate>

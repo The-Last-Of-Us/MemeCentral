@@ -36,8 +36,15 @@
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            this.LikesValue.Text = this.Likes.ToString();
-            this.DislikesValue.Text = this.Dislikes.ToString();
+            if(this.Likes != 0)
+            {
+                this.LikesValue.Text = this.Likes.ToString();
+            }
+
+            if (this.Dislikes != 0)
+            {
+                this.DislikesValue.Text = this.Dislikes.ToString();
+            }
 
             //if (this.CurrentUserVote > 0)
             //{
