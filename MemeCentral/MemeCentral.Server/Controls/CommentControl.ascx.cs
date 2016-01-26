@@ -7,6 +7,7 @@
 
     using Events;
     using Data.Models;
+    using Data;
 
     public partial class CommentControl : UserControl
     {
@@ -29,9 +30,19 @@
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            this.AllComments.DataSource = this.Comments;
-            this.AllComments.DataBind();
+            if(this.Comments != null)
+            {
+                this.AllComments.DataSource = this.Comments;
+                this.AllComments.DataBind();
+            }
 
+        }
+
+        protected string GetUserName(Comment item)
+        {
+            var db = new MemeDbContext();
+            var userName = db.Users.Find(item.UserId).UserName;
+            return userName;
         }
 
         protected void ButtonComment_Command(object sender, CommandEventArgs e)

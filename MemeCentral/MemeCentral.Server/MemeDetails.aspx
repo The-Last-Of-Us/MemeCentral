@@ -8,8 +8,8 @@
         <ItemTemplate>
             <div class="row container">
                 <div class="col-md-12 text-center"><%#: Item.Title %></div>
-                <div class="col-md-4">
-                    <img src="<%#:Item.ImageUrl %>" class="image-container img-rounded" />
+                <div class="col-md-4 image-container">
+                    <img src="<%#:Item.ImageUrl %>" class="memeImgDetail img-rounded" />
                 </div>
             </div>
             <br />

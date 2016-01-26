@@ -38,11 +38,50 @@ input[type="select"] {
 }
 
 .image-container{
-    max-width:400px;
-    max-height:200px;
+    max-width:600px;
+    max-height:400px;
+    height:auto;
+    width:auto;
 }
 
 .commentMessage{
+    margin: 15px;
+    background-color:darkgrey;
+    border-radius: 15px;
+}
 
-    margin: 5px;
+.userTag{
+    font-size: 12px;
+}
+
+.userTag > a{
+    color:white;
+    
+}
+
+.memeImgDetail {
+    max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}
+
+.commentInput{
+    border-radius:15px;
+    outline-width: 0;
+    width:100%;
+}
+
+.commentButton{
+    border-radius:100px;
+    margin-top:10px;
+}
+
+.likeButton{
+    color:green;
+    font-size:16px;
+}
+
+.dislikeButton{
+    color:red;
+    font-size:16px;
 }
