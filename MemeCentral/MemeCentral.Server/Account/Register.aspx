@@ -19,6 +19,14 @@
             </div>
         </div>
         <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="UserName" CssClass="col-md-2 control-label">UserName</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="UserName" CssClass="form-control"/>
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName"
+                    CssClass="text-danger" ErrorMessage="The user name filed is required." />
+            </div>
+        </div>
+        <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />

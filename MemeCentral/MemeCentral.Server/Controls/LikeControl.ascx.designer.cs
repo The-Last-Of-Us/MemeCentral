@@ -7,54 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MemeCentral.Server.Account {
+namespace MemeCentral.Server.Controls {
     
     
-    public partial class Register {
+    public partial class LikeControl {
         
         /// <summary>
-        /// ErrorMessage control.
+        /// ControlWrapper control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ErrorMessage;
+        protected global::System.Web.UI.UpdatePanel ControlWrapper;
         
         /// <summary>
-        /// Email control.
+        /// ButtonLike control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Email;
+        protected global::System.Web.UI.WebControls.LinkButton ButtonLike;
         
         /// <summary>
-        /// UserName control.
+        /// ButtonDislike control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UserName;
+        protected global::System.Web.UI.WebControls.LinkButton ButtonDislike;
         
         /// <summary>
-        /// Password control.
+        /// LikesValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.WebControls.Label LikesValue;
         
         /// <summary>
-        /// ConfirmPassword control.
+        /// DislikesValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
+        protected global::System.Web.UI.WebControls.Label DislikesValue;
     }
 }
