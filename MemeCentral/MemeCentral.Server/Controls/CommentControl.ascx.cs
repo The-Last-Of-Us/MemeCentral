@@ -3,12 +3,14 @@
     using System;
     using System.Web.UI;
     using System.Web.UI.WebControls;
+    using System.Collections.Generic;
 
     using Events;
+    using Data.Models;
 
     public partial class CommentControl : UserControl
     {
-        public string Comments { get; set; }
+        public List<Comment> Comments { get; set; }
 
         public int ItemId { get; set; }
 
@@ -27,7 +29,8 @@
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            //TODO Pass comments to some repeater thing
+            this.AllComments.DataSource = this.Comments;
+            this.AllComments.DataBind();
 
         }
 

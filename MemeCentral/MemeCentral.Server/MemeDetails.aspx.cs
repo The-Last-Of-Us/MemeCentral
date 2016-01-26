@@ -8,6 +8,7 @@
     using Data.Models;
     using Events;
     using Controls;
+    using System.Collections.Generic;
 
     public partial class MemeDetails : BasePage
     {
@@ -34,13 +35,18 @@
         {
             var userID = this.User.Identity.GetUserId();
             var meme = this.dbContext.Memes.Find(e.DataID);
-            var comment = new Comment() { MemeId = meme.Id, UserId = userID, Content = e.Content };
+            var comment = new Comment() { MemeId = meme.Id, UserId = userID, Content = e.Content, CreationDate = DateTime.Now };
             meme.Comments.Add(comment);
             this.dbContext.SaveChanges();
 
             // Visualise all the comments TODO
-            //var control = sender as LikeControl;
-            //control.Comments = meme.Comments;
+            var control = sender as CommentControl;
+            control.Comments = meme.Comments.OrderByDescending(x => x.CreationDate).ToList();
+        }
+
+        protected List<Comment> GetComments(Meme item)
+        {
+            return item.Comments.OrderByDescending(x => x.CreationDate).ToList();
         }
 
         protected int GetLikes(Meme item)

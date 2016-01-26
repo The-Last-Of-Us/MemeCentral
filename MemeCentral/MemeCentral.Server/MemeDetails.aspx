@@ -27,6 +27,7 @@
                 <div class="col-md-12">
                 <uc:CommentControl runat="server" ID="CommentControl"
                 ItemId="<%# Item.Id %>"
+                Comments="<%# GetComments(Item) %>"
                 OnComment="CommentControl_Comment"/>
                 </div>
             </div>
