@@ -1,8 +1,9 @@
 namespace MemeCentral.Data.Models
 {
-	using System.ComponentModel.DataAnnotations;
+    using System;
+    using System.ComponentModel.DataAnnotations;
 
-	public class Comment
+    public class Comment
 	{
 		public int Id { get; set; }
 
@@ -18,5 +19,7 @@ namespace MemeCentral.Data.Models
 		[Required]
 		[MaxLength(200)]
 		public string Content { get; set; }
+
+        public DateTime CreationDate { get; set; }
 	}
 }
