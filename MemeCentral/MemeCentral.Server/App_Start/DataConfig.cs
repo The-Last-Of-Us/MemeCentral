@@ -13,10 +13,10 @@
 		{
 			Database.SetInitializer(new MigrateDatabaseToLatestVersion<MemeDbContext, Configuration>());
 
-			//using (var db = new MemeDbContext())
-			//{
-			//	db.Users.FirstOrDefault();
-			//}
+			using (var db = new MemeDbContext())
+			{
+				db.Users.FirstOrDefault();
+			}
 		}
 	}
 }

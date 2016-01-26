@@ -1,3 +1,5 @@
+using System.Data.Entity.ModelConfiguration.Conventions;
+
 namespace MemeCentral.Data
 {
 	using System.Data.Entity;
@@ -24,10 +26,12 @@ namespace MemeCentral.Data
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
-			//modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-			//modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+			// TODO: Bad fix for "cycles or multiple cascade paths" error, fix with something like:
+			// modelBuilder.Entity<Comment>().HasRequired(comment => comment.User).WithMany().WillCascadeOnDelete(false);
 
-			modelBuilder.Entity<Comment>().HasRequired(comment => comment.User).WithMany().WillCascadeOnDelete(false);
+			modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+			modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+
 			base.OnModelCreating(modelBuilder);
 		}
 	}
