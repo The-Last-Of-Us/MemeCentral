@@ -6,8 +6,13 @@
             <div class="col-md-12">
                 <div>Comment</div>
                 <div>
-                    <asp:TextBox runat="server" ID="UserContent" />
-                    <asp:LinkButton runat="server" Text="Comment" ID="ButtonLike" CssClass="btn btn-success" CommandArgument="<%# this.ItemId %>" CommandName="Comment" OnCommand="ButtonComment_Command" />
+                    <div class="col-md-12">
+                        <asp:TextBox runat="server" ID="UserContent" CssClass="commentInput" TextMode="MultiLine" />
+                    </div>
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                         <asp:LinkButton runat="server" Text="Comment" ID="ButtonLike" CssClass="btn btn-success commentButton" CommandArgument="<%# this.ItemId %>" CommandName="Comment" OnCommand="ButtonComment_Command" />
+                    </div>                   
                 </div>
             </div>
         </div>
@@ -15,10 +20,16 @@
             <asp:Repeater runat="server" ID="AllComments" ItemType="MemeCentral.Data.Models.Comment">
                 <ItemTemplate>
                     <div class="col-md-12 commentMessage">
-                        <%#:Item.Content %>
-                        
-                        <hr />
+                        <div class="col-md-12">
+                            <strong>
+                                <%#:Item.Content %>
+                            </strong>
+                        </div>
+                        <div class="col-md-12 userTag">
+                            <a href="/">by: <%#: GetUserName(Item) %></a>
+                        </div>
                     </div>
+                    <hr />
                 </ItemTemplate>
             </asp:Repeater>
         </div>

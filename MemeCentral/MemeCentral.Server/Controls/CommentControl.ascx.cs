@@ -7,6 +7,7 @@
 
     using Events;
     using Data.Models;
+    using Data;
 
     public partial class CommentControl : UserControl
     {
@@ -35,6 +36,13 @@
                 this.AllComments.DataBind();
             }
 
+        }
+
+        protected string GetUserName(Comment item)
+        {
+            var db = new MemeDbContext();
+            var userName = db.Users.Find(item.UserId).UserName;
+            return userName;
         }
 
         protected void ButtonComment_Command(object sender, CommandEventArgs e)
