@@ -3,6 +3,7 @@
 	using System.Security.Claims;
 	using System.Threading.Tasks;
 	using System.Collections.Generic;
+	using System.ComponentModel.DataAnnotations.Schema;
 	using Microsoft.AspNet.Identity;
 	using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -32,6 +33,7 @@
 			}
 		}
 
+		[InverseProperty("User")]
 		public virtual ICollection<Comment> Comments
 		{
 			get
