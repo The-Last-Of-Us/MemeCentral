@@ -35,6 +35,10 @@
 				CreationDate = DateTime.Now,
 				UserId = this.User.Identity.GetUserId()
 			};
+
+			this.dbContext.Memes.Add(meme);
+
+			this.dbContext.SaveChanges();
 		}
 	}
 }
