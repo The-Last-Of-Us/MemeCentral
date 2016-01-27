@@ -113,7 +113,7 @@
             var obj = sender as RadioButton;
             if (obj.Checked)
             {
-                var result = this.dbContext.Memes.Where(x => x.UserId == userID);
+                var result = this.dbContext.Memes.Where(x => x.UserId == userID).ToList();
                 if (result != null)
                 {
                     this.AllMemesGrid.DataSource = result;
@@ -169,6 +169,20 @@
             }
 
             this.AllMemesGrid.DataBind();
+        }
+
+        protected int GetLikes(Meme item)
+        {
+            return item.Likes.Where(x => x.Value == true)
+                .ToList()
+                .Count();
+        }
+
+        protected int GetDislikes(Meme item)
+        {
+            return item.Likes.Where(x => x.Value == false)
+                .ToList()
+                .Count();
         }
     }
 }
