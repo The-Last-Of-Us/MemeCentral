@@ -107,7 +107,19 @@
         protected void DeleteButton_Command(object sender, CommandEventArgs e)
         {
             var memeId = e.CommandArgument.ToString();
-            var meme = this.dbContext.Memes.Find(int.Parse(memeId));
+			var meme = this.dbContext.Memes.Find(int.Parse(memeId));
+			var likes = meme.Likes.ToArray();
+			var comments = meme.Comments.ToArray();
+
+			foreach (var like in likes)
+			{
+				this.dbContext.Likes.Remove(like);
+			}
+
+			foreach (var comment in comments)
+			{
+				this.dbContext.Comments.Remove(comment);
+			}
 
             this.dbContext.Memes.Remove(meme);
             var result = this.dbContext.SaveChanges();
