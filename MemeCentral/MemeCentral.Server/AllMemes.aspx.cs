@@ -1,6 +1,7 @@
 ﻿namespace MemeCentral.Server
 {
     using MemeCentral.Data.Models;
+    using Microsoft.AspNet.Identity;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -108,14 +109,24 @@
 
         protected void ShowOnlyMine_CheckedChanged(object sender, EventArgs e)
         {
-
+            var userID = this.User.Identity.GetUserId();
+            var obj = sender as RadioButton;
+            if (obj.Checked)
+            {
+                var result = this.dbContext.Memes.Where(x => x.UserId == userID);
+                if (result != null)
+                {
+                    this.AllMemesGrid.DataSource = result;
+                    this.DataBind();
+                }
+                //No results found message maybe
+            }
         }
 
         protected void SearchButton_Click(object sender, EventArgs e)
         {
-            var userNameToSearch = this.SearchByUserName.Text;
-            var a = this.dbContext.Memes.ToList();
-            var result = a.Where(x => x.Title.IndexOf(userNameToSearch) > -1);
+            var titleToSearch = this.SearchByUserName.Text;
+            var result = this.dbContext.Memes.Where(x => x.Title.IndexOf(titleToSearch) > -1);
             if (result != null)
             {
                 this.AllMemesGrid.DataSource = result;
@@ -130,14 +141,13 @@
             var button = sender as Button;
             var cmdName = button.CommandName;
             var isAsc = cmdName == "Asc" ? true : false;
-            var memes = this.dbContext.Memes.ToList();
             if (isAsc)
             {
-                this.AllMemesGrid.DataSource = memes.OrderBy(x => x.CreationDate);
+                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderBy(x => x.CreationDate);
             }
             else
             {
-                this.AllMemesGrid.DataSource = memes.OrderByDescending(x => x.CreationDate);
+                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderByDescending(x => x.CreationDate);
             }
 
             this.AllMemesGrid.DataBind();
@@ -148,14 +158,14 @@
             var button = sender as Button;
             var cmdName = button.CommandName;
             var isLikes = cmdName == "Likes" ? true : false;
-            var memes = this.dbContext.Memes.ToList();
+
             if (isLikes)
             {
-                this.AllMemesGrid.DataSource = memes.OrderBy(x => x.Likes);
+                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderBy(x => x.Likes);
             }
             else
             {
-                this.AllMemesGrid.DataSource = memes.OrderByDescending(x => x.Likes);
+                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderByDescending(x => x.Likes);
             }
 
             this.AllMemesGrid.DataBind();
