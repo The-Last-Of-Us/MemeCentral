@@ -110,17 +110,14 @@
         protected void ShowOnlyMine_CheckedChanged(object sender, EventArgs e)
         {
             var userID = this.User.Identity.GetUserId();
-            var obj = sender as RadioButton;
-            if (obj.Checked)
+
+            var result = this.dbContext.Memes.Where(x => x.UserId == userID).ToList();
+            if (result != null)
             {
-                var result = this.dbContext.Memes.Where(x => x.UserId == userID).ToList();
-                if (result != null)
-                {
-                    this.AllMemesGrid.DataSource = result;
-                    this.DataBind();
-                }
-                //No results found message maybe
+                this.AllMemesGrid.DataSource = result;
+                this.DataBind();
             }
+
         }
 
         protected void SearchButton_Click(object sender, EventArgs e)

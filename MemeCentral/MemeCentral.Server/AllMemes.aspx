@@ -16,13 +16,13 @@
                     <asp:Button runat="server" ID="OrderByDateDesc" Text="ByDateDesc" CssClass="btn btn-primary" CommandName="Desc" CommandArgument="d" OnCommand="OrderByDate_Click" />
                     <asp:Button runat="server" ID="OrderByLikes" Text="ByLikes" CssClass="btn btn-primary" CommandName="Likes" CommandArgument="i" OnCommand="OrderByLikes_Click" />
                     <asp:Button runat="server" ID="OrderByDislikes" Text="ByDislikes" CssClass="btn btn-primary" CommandName="Dislikes" CommandArgument="c" OnCommand="OrderByLikes_Click" />
-                    <asp:RadioButton ID="ShowOnlyMine"
-                        Checked="False"
+                    <asp:Button ID="ShowOnlyMine"
                         GroupName="GroupName"
                         Text="ShowOnlyYours"
                         TextAlign="Left"
                         AutoEventWireup="True"
-                        OnCheckedChanged="ShowOnlyMine_CheckedChanged"
+                        CssClass="btn btn-warning"
+                        OnClick="ShowOnlyMine_CheckedChanged"
                         runat="server" />
 
                 </div>
