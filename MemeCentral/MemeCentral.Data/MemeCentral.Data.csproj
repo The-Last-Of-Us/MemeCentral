@@ -89,6 +89,7 @@
     <Compile Include="MemeDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Like.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Meme.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,10 +6,13 @@ namespace MemeCentral.Data.Models
 
 	public class Meme
 	{
+		private ICollection<Like> likes;
+
 		private ICollection<Comment> comments;
 
 		public Meme()
 		{
+			this.likes = new HashSet<Like>();
 			this.comments = new HashSet<Comment>();
 		}
 
@@ -29,11 +32,20 @@ namespace MemeCentral.Data.Models
 		[MaxLength(1000)]
 		public string ImageUrl { get; set; }
 
-		public int Likes { get; set; }
-
-		public int Dislikes { get; set; }
-
 		public DateTime CreationDate { get; set; }
+
+		public virtual ICollection<Like> Likes
+		{
+			get
+			{
+				return this.likes;
+			}
+
+			set
+			{
+				this.likes = value;
+			}
+		}
 
 		public virtual ICollection<Comment> Comments
 		{

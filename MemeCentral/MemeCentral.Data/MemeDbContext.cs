@@ -1,8 +1,7 @@
-using System.Data.Entity.ModelConfiguration.Conventions;
-
 namespace MemeCentral.Data
 {
 	using System.Data.Entity;
+	using System.Data.Entity.ModelConfiguration.Conventions;
 	using Microsoft.AspNet.Identity.EntityFramework;
 
 	using Models;
@@ -18,6 +17,8 @@ namespace MemeCentral.Data
 		public virtual IDbSet<Meme> Memes { get; set; }
 
 		public virtual IDbSet<Comment> Comments { get; set; }
+
+		public virtual IDbSet<Like> Likes { get; set; }
 
 		public static MemeDbContext Create()
 		{

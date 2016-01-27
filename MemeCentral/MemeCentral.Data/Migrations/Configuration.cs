@@ -42,9 +42,20 @@ namespace MemeCentral.Data.Migrations
 					User = users[0],
 					Title = $"SeedMeme[{i}]",
 					ImageUrl = "http://static1.squarespace.com/static/55674e06e4b0830d6f6d4322/55ad1b7ce4b0218e8e379b4b/55ad1b7de4b0218e8e379b4c/1437408203254/Seed-germinating.jpg",
-					Likes = (i + 7) * ((int)Math.Sin(17 * i)),
-					Dislikes = (i + 2) * ((int)Math.Cos(13 * i)),
 					CreationDate = DateTime.Now
+				};
+			}
+
+			Like[] likes = new Like[1];
+			for (int i = 0; i < likes.Length; i++)
+			{
+				likes[i] = new Like
+				{
+					UserId = users[1].Id,
+					User = users[1],
+					MemeId = memes[0].Id,
+					Meme = memes[0],
+					Value = true
 				};
 			}
 
@@ -64,6 +75,8 @@ namespace MemeCentral.Data.Migrations
 			db.Users.AddOrUpdate(u => u.UserName, users);
 
 			db.Memes.AddOrUpdate(m => m.Title, memes);
+
+			db.Likes.AddOrUpdate(likes);
 
 			db.Comments.AddOrUpdate(c => c.Content, comments);
 		}
