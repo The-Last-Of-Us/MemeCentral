@@ -12,11 +12,14 @@
     {
 		private ICollection<Meme> memes;
 
+		private ICollection<Like> likes;
+
 		private ICollection<Comment> comments;
 
 		public User()
 		{
 			this.memes = new HashSet<Meme>();
+			this.likes = new HashSet<Like>();
 			this.comments = new HashSet<Comment>();
 		}
 
@@ -30,6 +33,18 @@
 			set
 			{
 				this.memes = value;
+			}
+		}
+
+		[InverseProperty("User")]
+		public virtual ICollection<Like> Likes {
+			get
+			{
+				return this.likes;
+			}
+			set
+			{
+				this.likes = value;
 			}
 		}
 

@@ -51,12 +51,14 @@
 
         protected int GetLikes(Meme item)
         {
-            return item.Likes;
+            //return item.Likes;
+            return 5;
         }
 
         protected int GetDislikes(Meme item)
         {
-            return item.Dislikes;
+            //return item.Dislikes;
+			return 2;
         }
 
         protected void LikeControl_Like(object sender, LikeEventArgs e)
@@ -64,12 +66,12 @@
             var userID = this.User.Identity.GetUserId();
             var meme = this.dbContext.Memes.Find(e.DataID);
 
-            meme.Likes++;
+            //meme.Likes++;
             this.dbContext.SaveChanges();
 
             var control = sender as LikeControl;
-            control.Likes = meme.Likes;
-            control.Dislikes = meme.Dislikes;
+            //control.Likes = meme.Likes;
+            //control.Dislikes = meme.Dislikes;
         }
 
         protected void LikeControl_Dislike(object sender, DislikeEventArgs e)
@@ -77,14 +79,12 @@
             var userID = this.User.Identity.GetUserId();
             var meme = this.dbContext.Memes.Find(e.DataID);
 
-            meme.Dislikes++;
+            //meme.Dislikes++;
             this.dbContext.SaveChanges();
 
             var control = sender as LikeControl;
-            control.Likes = meme.Likes;
-            control.Dislikes = meme.Dislikes;
+            //control.Likes = meme.Likes;
+            //control.Dislikes = meme.Dislikes;
         }
-
-        
     }
 }
