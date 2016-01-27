@@ -8,7 +8,7 @@
                     <div>Search</div>
                 </div>
                 <div class="col-md-12 searchQueryGroup">
-                    <asp:TextBox runat="server" ID="SearchByUserName" placeholder="Search by UserName" />
+                    <asp:TextBox runat="server" ID="SearchByUserName" />
                     <asp:Button runat="server" CssClass="btn btn-primary" ID="SearchButton" OnClick="SearchButton_Click" Text="Search" />
                 </div>
                 <div class="col-md-12 searchQueyGroup">

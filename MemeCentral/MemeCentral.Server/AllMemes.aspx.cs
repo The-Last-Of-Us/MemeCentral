@@ -55,12 +55,6 @@
             this.AllMemesGrid.DataBind();
         }
 
-        protected void Page_Changed(object sender, EventArgs e)
-        {
-            int pageIndex = int.Parse((sender as LinkButton).CommandArgument);
-        }
-
-
         private int Skip
         {
             get
