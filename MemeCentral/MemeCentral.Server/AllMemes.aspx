@@ -15,7 +15,7 @@
                     <asp:Button runat="server" ID="OrderByDateAcs" Text="ByDateAsc" CssClass="btn btn-primary" CommandName="Asc" CommandArgument="Eat" OnCommand="OrderByDate_Click" />
                     <asp:Button runat="server" ID="OrderByDateDesc" Text="ByDateDesc" CssClass="btn btn-primary" CommandName="Desc" CommandArgument="d" OnCommand="OrderByDate_Click" />
                     <asp:Button runat="server" ID="OrderByLikes" Text="ByLikes" CssClass="btn btn-primary" CommandName="Likes" CommandArgument="i" OnCommand="OrderByLikes_Click" />
-                    <asp:Button runat="server" ID="OrderByDislikes" Text="ByDislikes" CssClass="btn btn-primary" CommandName="Dislikes" CommandArgument="c" OnCommand="OrderByLikes_Click" />
+                    <asp:Button runat="server" ID="OrderByDislikes" Text="ByDislikes" CssClass="btn btn-primary" CommandName="Dislikes" CommandArgument="c" OnCommand="OrderByDisikes_Click" />
                     <asp:Button ID="ShowOnlyMine"
                         GroupName="GroupName"
                         Text="ShowOnlyYours"
