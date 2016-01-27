@@ -6,7 +6,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:FormView runat="server" ID="MemeViewArticle" ItemType="MemeCentral.Data.Models.Meme" SelectMethod="MemeViewArticle_GetItem">
         <ItemTemplate>
-            <div class="row">
+            <div class="jumbotron">
+                <div class="row">
                 <div class="col-md-12 text-center"><%#: Item.Title %></div>
                 <div class="col-md-12 image-container">
                     <img src="<%#:Item.ImageUrl %>" class="memeImgDetail img-rounded" />
@@ -39,6 +40,7 @@
                         Comments="<%# GetComments(Item) %>"
                         OnComment="CommentControl_Comment" />
                 </div>
+            </div>
             </div>
         </ItemTemplate>
     </asp:FormView>
