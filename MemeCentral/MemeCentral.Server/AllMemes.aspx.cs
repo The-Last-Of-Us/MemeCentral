@@ -126,7 +126,7 @@
         protected void SearchButton_Click(object sender, EventArgs e)
         {
             var titleToSearch = this.SearchByUserName.Text;
-            var result = this.dbContext.Memes.Where(x => x.Title.IndexOf(titleToSearch) > -1);
+            var result = this.dbContext.Memes.Where(x => x.Title.IndexOf(titleToSearch) > -1).ToList();
             if (result != null)
             {
                 this.AllMemesGrid.DataSource = result;
@@ -143,11 +143,11 @@
             var isAsc = cmdName == "Asc" ? true : false;
             if (isAsc)
             {
-                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderBy(x => x.CreationDate);
+                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderBy(x => x.CreationDate).ToList();
             }
             else
             {
-                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderByDescending(x => x.CreationDate);
+                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderByDescending(x => x.CreationDate).ToList();
             }
 
             this.AllMemesGrid.DataBind();
@@ -161,11 +161,11 @@
 
             if (isLikes)
             {
-                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderBy(x => x.Likes);
+                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderBy(x => x.Likes.Count).ToList();
             }
             else
             {
-                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderByDescending(x => x.Likes);
+                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderByDescending(x => x.Likes.Count).ToList();
             }
 
             this.AllMemesGrid.DataBind();
