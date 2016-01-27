@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemeCentral.Server", "MemeC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemeCentral.Data", "MemeCentral.Data\MemeCentral.Data.csproj", "{ADA87BC3-F464-4FB5-8255-532E5C5FBAFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemeCentral.Common", "MemeCentral.Common\MemeCentral.Common.csproj", "{FE82060D-AF1A-45D6-A355-895E248889A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{ADA87BC3-F464-4FB5-8255-532E5C5FBAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADA87BC3-F464-4FB5-8255-532E5C5FBAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADA87BC3-F464-4FB5-8255-532E5C5FBAFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE82060D-AF1A-45D6-A355-895E248889A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE82060D-AF1A-45D6-A355-895E248889A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE82060D-AF1A-45D6-A355-895E248889A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE82060D-AF1A-45D6-A355-895E248889A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

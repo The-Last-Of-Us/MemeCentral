@@ -98,6 +98,12 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MemeCentral.Common\MemeCentral.Common.csproj">
+      <Project>{fe82060d-af1a-45d6-a355-895e248889a2}</Project>
+      <Name>MemeCentral.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
