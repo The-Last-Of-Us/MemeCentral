@@ -1,6 +1,8 @@
 ﻿namespace MemeCentral.Server
 {
 	using System;
+	using System.IO;
+	using System.Linq;
 	using System.Collections.Generic;
 	using Microsoft.AspNet.Identity;
 
@@ -10,6 +12,11 @@
 	public partial class AddMeme : BasePage
 	{
 		protected const string DefaultMemeUrl = "http://www.troll.me/images/yao-ming/insert-random-meme-here.jpg";
+
+		protected static readonly string[] ValidMemeUrlExtensions =
+		{
+			".bmp", ".gif", ".png", ".jpg", ".jpeg"
+		};
 
 		protected void Page_Init()
 		{
@@ -48,7 +55,8 @@
 				titleFormGroupClasses.Remove(HasEror);
 			}
 
-			if (this.MemeUrl.Text == string.Empty || ValidationConstants.MemeImageUrlMaxLength < this.MemeUrl.Text.Length)
+			if (this.MemeUrl.Text == string.Empty || ValidationConstants.MemeImageUrlMaxLength < this.MemeUrl.Text.Length || 
+				!AddMeme.ValidMemeUrlExtensions.Contains(Path.GetExtension(this.MemeUrl.Text)))
 			{
 				memeUrlFormGroupClasses.Add(HasEror);
 				memeValid = false;
