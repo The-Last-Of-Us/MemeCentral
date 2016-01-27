@@ -188,6 +188,9 @@
     <Content Include="images\1.png" />
     <Content Include="images\2.png" />
     <Content Include="images\3.png" />
+    <Content Include="images\cool_face.png" />
+    <Content Include="images\LOLGuy.png" />
+    <Content Include="images\Y_U_NO_%28meme%29.png" />
     <Content Include="MemeDetails.aspx" />
     <Content Include="NotFound.aspx" />
     <Content Include="Scripts\bootstrap.js" />
