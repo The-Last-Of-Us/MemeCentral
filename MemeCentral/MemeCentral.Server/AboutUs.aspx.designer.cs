@@ -11,7 +11,7 @@ namespace MemeCentral.Server
 {
 
 
-    public partial class Contact
+    public partial class AboutUs
     {
     }
 }

@@ -6,9 +6,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:FormView runat="server" ID="MemeViewArticle" ItemType="MemeCentral.Data.Models.Meme" SelectMethod="MemeViewArticle_GetItem">
         <ItemTemplate>
-            <div class="row container">
+            <div class="row">
                 <div class="col-md-12 text-center"><%#: Item.Title %></div>
-                <div class="col-md-4 image-container">
+                <div class="col-md-12 image-container">
                     <img src="<%#:Item.ImageUrl %>" class="memeImgDetail img-rounded" />
                 </div>
             </div>

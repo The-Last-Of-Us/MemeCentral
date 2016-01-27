@@ -63,7 +63,7 @@
                 .Count();
         }
 
-        protected bool HasUserVoted(Meme Item)
+        protected int HasUserVoted(Meme Item)
         {
             var userID = this.User.Identity.GetUserId();
             var hasUserVoted = Item.Likes
@@ -72,10 +72,10 @@
 
             if(hasUserVoted == null)
             {
-                return false;
+                return -1;
             }
 
-            return true;
+            return 1;
         }
 
         protected void LikeControl_Like(object sender, LikeEventArgs e)
@@ -100,7 +100,7 @@
             var control = sender as LikeControl;
             control.Likes = this.GetLikes(meme);
             control.Dislikes = this.GetDislikes(meme);
-            control.UserHasVoted = true;
+            control.UserHasVoted = 1;
         }
 
     }
