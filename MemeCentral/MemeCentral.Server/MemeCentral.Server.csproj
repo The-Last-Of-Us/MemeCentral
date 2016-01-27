@@ -389,7 +389,6 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Events\CommentEventArgs.cs" />
-    <Compile Include="Events\DislikeEventArgs.cs" />
     <Compile Include="Events\LikeEventArgs.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
