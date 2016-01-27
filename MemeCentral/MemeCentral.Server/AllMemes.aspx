@@ -12,17 +12,17 @@
                     <asp:Button runat="server" CssClass="btn btn-primary" ID="SearchButton" OnClick="SearchButton_Click" Text="Search" />
                 </div>
                 <div class="col-md-12 searchQueyGroup">
-                <asp:Button runat="server" ID="OrderByDateAcs" Text="ByDateAsc" CssClass="btn btn-primary" />
-                <asp:Button runat="server" ID="OrderByDateDesc" Text="ByDateDesc" CssClass="btn btn-primary" />
-                <asp:Button runat="server" ID="OrderByLikes" Text="ByLikes" CssClass="btn btn-primary"/>
-                <asp:Button runat="server" ID="OrderByDislikes" Text="ByDislikes" CssClass="btn btn-primary"/>
-                <asp:RadioButton id="ShowOnlyMine" 
-                 Checked="False"
-                 GroupName="GroupName"
-                 Text="ShowOnlyYours"
-                 TextAlign="Left"
-                 OnCheckedChanged="ShowOnlyMine_CheckedChanged"
-                 runat="server"/>
+                    <asp:Button runat="server" ID="OrderByDateAcs" Text="ByDateAsc" CssClass="btn btn-primary" CommandName="Asc" CommandArgument="Eat" OnCommand="OrderByDate_Click"/>
+                    <asp:Button runat="server" ID="OrderByDateDesc" Text="ByDateDesc" CssClass="btn btn-primary" CommandName="Desc" CommandArgument="d" OnCommand="OrderByDate_Click" />
+                    <asp:Button runat="server" ID="OrderByLikes" Text="ByLikes" CssClass="btn btn-primary" CommandName="Likes" CommandArgument="i" OnCommand="OrderByLikes_Click" />
+                    <asp:Button runat="server" ID="OrderByDislikes" Text="ByDislikes" CssClass="btn btn-primary" CommandName="Dislikes" CommandArgument="c" OnCommand="OrderByLikes_Click" />
+                    <asp:RadioButton ID="ShowOnlyMine"
+                        Checked="False"
+                        GroupName="GroupName"
+                        Text="ShowOnlyYours"
+                        TextAlign="Left"
+                        OnCheckedChanged="ShowOnlyMine_CheckedChanged"
+                        runat="server" />
 
                 </div>
             </div>
