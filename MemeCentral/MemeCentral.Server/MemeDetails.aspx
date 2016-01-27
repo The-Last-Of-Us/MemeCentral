@@ -20,7 +20,7 @@
                 Dislikes="<%# GetDislikes(Item) %>"
                 ItemId="<%# Item.Id %>"
                 OnLike="LikeControl_Like"
-                OnDislike="LikeControl_Dislike" />
+                OnDislike="LikeControl_Like" />
                 </div>
             </div>
                 <div class="row">
