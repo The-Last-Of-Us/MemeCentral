@@ -27,13 +27,13 @@ namespace MemeCentral.Data
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
-			// TODO: Bad fix for "cycles or multiple cascade paths" error, fix with something like:
-			// modelBuilder.Entity<Comment>().HasRequired(comment => comment.User).WithMany().WillCascadeOnDelete(false);
+            // TODO: Bad fix for "cycles or multiple cascade paths" error, fix with something like:
+            modelBuilder.Entity<Meme>().HasRequired(x => x.User).WithMany().WillCascadeOnDelete();
 
-			modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-			modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
-
-			base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<OneToOneConstraintIntroductionConvention>();
+            base.OnModelCreating(modelBuilder);
 		}
 	}
 }

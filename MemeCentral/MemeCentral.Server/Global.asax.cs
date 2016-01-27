@@ -17,6 +17,6 @@ namespace MemeCentral.Server
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 			DataConfig.Init();
-        }
+		}
     }
 }

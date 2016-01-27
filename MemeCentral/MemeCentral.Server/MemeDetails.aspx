@@ -12,24 +12,30 @@
                     <img src="<%#:Item.ImageUrl %>" class="memeImgDetail img-rounded" />
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <asp:Button runat="server" ID="DeleteButton" CssClass="btn btn-danger" Text="Delete" CommandArgument="<%#: Item.Id %>" OnCommand="DeleteButton_Command" />
+                </div>
+
+            </div>
             <br />
             <div class="row">
                 <div class="col-md-12">
-                <uc:LikeControl runat="server" ID="LikeControl"
-                Likes="<%# GetLikes(Item) %>"
-                Dislikes="<%# GetDislikes(Item) %>"
-                UserHasVoted ="<%# HasUserVoted(Item) %>"
-                ItemId="<%# Item.Id %>"
-                OnLike="LikeControl_Like"
-                OnDislike="LikeControl_Like" />
+                    <uc:LikeControl runat="server" ID="LikeControl"
+                        Likes="<%# GetLikes(Item) %>"
+                        Dislikes="<%# GetDislikes(Item) %>"
+                        UserHasVoted="<%# HasUserVoted(Item) %>"
+                        ItemId="<%# Item.Id %>"
+                        OnLike="LikeControl_Like"
+                        OnDislike="LikeControl_Like" />
                 </div>
             </div>
-                <div class="row">
+            <div class="row">
                 <div class="col-md-12">
-                <uc:CommentControl runat="server" ID="CommentControl"
-                ItemId="<%# Item.Id %>"
-                Comments="<%# GetComments(Item) %>"
-                OnComment="CommentControl_Comment"/>
+                    <uc:CommentControl runat="server" ID="CommentControl"
+                        ItemId="<%# Item.Id %>"
+                        Comments="<%# GetComments(Item) %>"
+                        OnComment="CommentControl_Comment" />
                 </div>
             </div>
         </ItemTemplate>

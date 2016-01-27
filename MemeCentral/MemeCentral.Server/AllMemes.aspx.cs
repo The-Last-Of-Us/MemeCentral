@@ -1,6 +1,7 @@
 ﻿namespace MemeCentral.Server
 {
     using MemeCentral.Data.Models;
+    using Microsoft.AspNet.Identity;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -14,51 +15,37 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void ButtonLike_Click(object sender, EventArgs e)
-        {
-
+            if (!this.IsPostBack)
+            {
+                this.Memes = this.dbContext.Memes.ToList();
+                this.AllMemesGrid.DataSource = this.Memes;
+                this.AllMemesGrid.DataBind();
+            }
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
         {
-            PagedDataSource pagingObject = new PagedDataSource();
-            pagingObject.AllowPaging = true;
-            pagingObject.PageSize = 10;
-            if (this.Memes != null)
-            {
-                pagingObject.DataSource = this.Memes;
-                pagingObject.CurrentPageIndex = this.PageNumber;
+            //PagedDataSource pagingObject = new PagedDataSource();
+            //pagingObject.AllowPaging = true;
+            //pagingObject.PageSize = 10;
+            //if (this.Memes != null)
+            //{
+            //    pagingObject.DataSource = this.Memes;
+            //    pagingObject.CurrentPageIndex = this.PageNumber;
 
-                this.AllMemesGrid.DataSource = pagingObject;
-                this.AllMemesGrid.DataBind();
-            }
-            else
-            {
-                this.Memes = this.dbContext.Memes.ToList();
-                pagingObject.DataSource = this.Memes;
-                pagingObject.CurrentPageIndex = 0;
-                this.AllMemesGrid.DataSource = pagingObject;
-                this.AllMemesGrid.DataBind();
-            }
+            //    this.AllMemesGrid.DataSource = pagingObject;
+            //    this.AllMemesGrid.DataBind();
+            //}
+            //else
+            //{
+            //    this.Memes = this.dbContext.Memes.ToList();
+            //    pagingObject.DataSource = this.Memes;
+            //    pagingObject.CurrentPageIndex = 0;
+            //this.Memes = this.dbContext.Memes.ToList();
+            //this.AllMemesGrid.DataSource = this.Memes;
+            //this.AllMemesGrid.DataBind();
+            // }
 
-        }
-
-        protected void CommentControl_Comment(object sender, EventArgs e)
-        {
-            //var userID = this.User.Identity.GetUserId();
-            //var meme = sender as ImageButton;
-
-            //var meme = this.dbContext.Memes.Find(e.DataID);
-            //var comment = new Comment() { MemeId = meme.Id, UserId = userID, Content = e.Content, CreationDate = DateTime.Now };
-            //meme.Comments.Add(comment);
-            //this.dbContext.SaveChanges();
-
-            //// Visualise all the comments TODO
-            //var control = sender as CommentControl;
-            //control.Comments = meme.Comments.OrderByDescending(x => x.CreationDate).ToList();
         }
 
         protected void Unnamed_Click(object sender, ImageClickEventArgs e)
@@ -118,6 +105,70 @@
                 }
             }
             set { ViewState["PageNumber"] = value; }
+        }
+
+        protected void ShowOnlyMine_CheckedChanged(object sender, EventArgs e)
+        {
+            var userID = this.User.Identity.GetUserId();
+            var obj = sender as RadioButton;
+            if (obj.Checked)
+            {
+                var result = this.dbContext.Memes.Where(x => x.UserId == userID);
+                if (result != null)
+                {
+                    this.AllMemesGrid.DataSource = result;
+                    this.DataBind();
+                }
+                //No results found message maybe
+            }
+        }
+
+        protected void SearchButton_Click(object sender, EventArgs e)
+        {
+            var titleToSearch = this.SearchByUserName.Text;
+            var result = this.dbContext.Memes.Where(x => x.Title.IndexOf(titleToSearch) > -1).ToList();
+            if (result != null)
+            {
+                this.AllMemesGrid.DataSource = result;
+                this.DataBind();
+            }
+            //No results found message maybe
+
+        }
+
+        protected void OrderByDate_Click(object sender, CommandEventArgs e)
+        {
+            var button = sender as Button;
+            var cmdName = button.CommandName;
+            var isAsc = cmdName == "Asc" ? true : false;
+            if (isAsc)
+            {
+                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderBy(x => x.CreationDate).ToList();
+            }
+            else
+            {
+                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderByDescending(x => x.CreationDate).ToList();
+            }
+
+            this.AllMemesGrid.DataBind();
+        }
+
+        protected void OrderByLikes_Click(object sender, EventArgs e)
+        {
+            var button = sender as Button;
+            var cmdName = button.CommandName;
+            var isLikes = cmdName == "Likes" ? true : false;
+
+            if (isLikes)
+            {
+                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderBy(x => x.Likes.Count).ToList();
+            }
+            else
+            {
+                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderByDescending(x => x.Likes.Count).ToList();
+            }
+
+            this.AllMemesGrid.DataBind();
         }
     }
 }

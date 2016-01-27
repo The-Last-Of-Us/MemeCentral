@@ -8,6 +8,8 @@
                 <div>
                     <div class="col-md-12">
                         <asp:TextBox runat="server" ID="UserContent" CssClass="commentInput" TextMode="MultiLine" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="UserContent"
+                           CssClass="text-danger" ErrorMessage="Please say a word." />
                     </div>
                     <div class="col-md-10"></div>
                     <div class="col-md-2">

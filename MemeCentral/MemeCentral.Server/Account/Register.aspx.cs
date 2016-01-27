@@ -17,7 +17,7 @@ namespace MemeCentral.Server.Account
         {
             var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var signInManager = Context.GetOwinContext().Get<ApplicationSignInManager>();
-            var user = new User() { UserName = UserName.Text, Email = Email.Text };
+            var user = new User() { UserName = UserName.Text, Email = Email.Text, LockoutEnabled = false };
             IdentityResult result = manager.Create(user, Password.Text);
             if (result.Succeeded)
             {
