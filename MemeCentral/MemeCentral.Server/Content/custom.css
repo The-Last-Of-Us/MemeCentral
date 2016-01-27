@@ -1,0 +1,10 @@
+﻿.aboutUsImg {
+    width: 80%;
+    height: 80%;
+}
+
+.aboutUsName {
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 15%;
+}
