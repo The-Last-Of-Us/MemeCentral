@@ -16,7 +16,7 @@ namespace MemeCentral.Server
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-			DataConfig.Init();
+			//DataConfig.Init();
         }
     }
 }
