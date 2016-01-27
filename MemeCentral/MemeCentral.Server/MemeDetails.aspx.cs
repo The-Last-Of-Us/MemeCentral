@@ -51,40 +51,39 @@
 
         protected int GetLikes(Meme item)
         {
-            //return item.Likes;
-            return 5;
+            return item.Likes.Where(x => x.Value == true)
+                .ToList()
+                .Count();
         }
 
         protected int GetDislikes(Meme item)
         {
-            //return item.Dislikes;
-			return 2;
+            return item.Likes.Where(x => x.Value == false)
+                .ToList()
+                .Count();
         }
 
         protected void LikeControl_Like(object sender, LikeEventArgs e)
         {
             var userID = this.User.Identity.GetUserId();
             var meme = this.dbContext.Memes.Find(e.DataID);
-
-            //meme.Likes++;
+            var rating = new Like();
+            rating.MemeId = e.DataID;
+            rating.UserId = userID;
+            if (e.LikeValue == 1)
+            {
+                rating.Value = true;
+            }
+            else
+            {
+                rating.Value = false;
+            }
+            meme.Likes.Add(rating);
             this.dbContext.SaveChanges();
 
             var control = sender as LikeControl;
-            //control.Likes = meme.Likes;
-            //control.Dislikes = meme.Dislikes;
-        }
-
-        protected void LikeControl_Dislike(object sender, DislikeEventArgs e)
-        {
-            var userID = this.User.Identity.GetUserId();
-            var meme = this.dbContext.Memes.Find(e.DataID);
-
-            //meme.Dislikes++;
-            this.dbContext.SaveChanges();
-
-            var control = sender as LikeControl;
-            //control.Likes = meme.Likes;
-            //control.Dislikes = meme.Dislikes;
+            control.Likes = this.GetLikes(meme);
+            control.Dislikes = this.GetDislikes(meme);
         }
     }
 }

@@ -9,7 +9,7 @@
                     <asp:LinkButton runat="server" ID="ButtonLike" CssClass="btn btn-default glyphicon glyphicon-chevron-up" CommandArgument="<%# this.ItemId %>" CommandName="Like" OnCommand="ButtonLike_Command" />
                 </div>
                 <div class="col-md-1">
-                    <asp:LinkButton runat="server" ID="ButtonDislike" CssClass="btn btn-default glyphicon glyphicon-chevron-down" CommandArgument="<%# this.ItemId %>" CommandName="Dislike" OnCommand="ButtonDislike_Command" />
+                    <asp:LinkButton runat="server" ID="ButtonDislike" CssClass="btn btn-default glyphicon glyphicon-chevron-down" CommandArgument="<%# this.ItemId %>" CommandName="Dislike" OnCommand="ButtonLike_Command" />
                 </div>
                 <div class="col-md-8"></div>
             </div>

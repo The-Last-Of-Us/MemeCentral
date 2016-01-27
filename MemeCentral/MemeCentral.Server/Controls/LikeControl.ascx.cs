@@ -21,10 +21,6 @@
 
         public event LikeEventHandler Like;
 
-        public delegate void DislikeEventHandler(object sender, DislikeEventArgs e);
-
-        public event DislikeEventHandler Dislike;
-
         protected void Page_Load(object sender, EventArgs e)
         {
             //if (!HttpContext.Current.User.Identity.IsAuthenticated)
@@ -60,12 +56,8 @@
 
         protected void ButtonLike_Command(object sender, CommandEventArgs e)
         {
-            this.Like(this, new LikeEventArgs(Convert.ToInt32(e.CommandArgument), 1));
-        }
-
-        protected void ButtonDislike_Command(object sender, CommandEventArgs e)
-        {
-            this.Dislike(this, new DislikeEventArgs(Convert.ToInt32(e.CommandArgument), 1));
+            int likeValue = e.CommandName == "Like" ? 1 : 0;
+            this.Like(this, new LikeEventArgs(Convert.ToInt32(e.CommandArgument), likeValue));
         }
     }
 }
