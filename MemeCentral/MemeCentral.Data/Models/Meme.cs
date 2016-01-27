@@ -4,6 +4,8 @@ namespace MemeCentral.Data.Models
 	using System.Collections.Generic;
 	using System.ComponentModel.DataAnnotations;
 
+	using Common;
+
 	public class Meme
 	{
 		private ICollection<Comment> comments;
@@ -21,12 +23,12 @@ namespace MemeCentral.Data.Models
 		public virtual User User { get; set; }
 
 		[Required]
-		[MinLength(5)]
-		[MaxLength(20)]
+		[MinLength(ValidationConstants.MemeTitleMinLength)]
+		[MaxLength(ValidationConstants.MemeTitleMaxLength)]
 		public string Title { get; set; }
 
 		[Required]
-		[MaxLength(1000)]
+		[MaxLength(ValidationConstants.MemeImageUrlMaxLength)]
 		public string ImageUrl { get; set; }
 
 		public int Likes { get; set; }
