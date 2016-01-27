@@ -12,11 +12,13 @@
                     <img src="<%#:Item.ImageUrl %>" class="memeImgDetail img-rounded" />
                 </div>
             </div>
-            <div class="row">
+            <div class="row"> 
+                   <% if (HttpContext.Current.User.IsInRole("admin") || IsUserCreator())
+                   { %>
                 <div class="col-md-12 text-center">
                     <asp:Button runat="server" ID="DeleteButton" CssClass="btn btn-danger" Text="Delete" CommandArgument="<%#: Item.Id %>" OnCommand="DeleteButton_Command" />
                 </div>
-
+                <% } %>
             </div>
             <br />
             <div class="row">
