@@ -17,11 +17,6 @@
 
         }
 
-        protected void ButtonLike_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void Page_PreRender(object sender, EventArgs e)
         {
             PagedDataSource pagingObject = new PagedDataSource();
@@ -44,21 +39,6 @@
                 this.AllMemesGrid.DataBind();
             }
 
-        }
-
-        protected void CommentControl_Comment(object sender, EventArgs e)
-        {
-            //var userID = this.User.Identity.GetUserId();
-            //var meme = sender as ImageButton;
-
-            //var meme = this.dbContext.Memes.Find(e.DataID);
-            //var comment = new Comment() { MemeId = meme.Id, UserId = userID, Content = e.Content, CreationDate = DateTime.Now };
-            //meme.Comments.Add(comment);
-            //this.dbContext.SaveChanges();
-
-            //// Visualise all the comments TODO
-            //var control = sender as CommentControl;
-            //control.Comments = meme.Comments.OrderByDescending(x => x.CreationDate).ToList();
         }
 
         protected void Unnamed_Click(object sender, ImageClickEventArgs e)
@@ -118,6 +98,17 @@
                 }
             }
             set { ViewState["PageNumber"] = value; }
+        }
+
+        protected void ShowOnlyMine_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void SearchButton_Click(object sender, EventArgs e)
+        {
+            var userNameToSearch = this.SearchByUserName.Text;
+            this.Memes.Where(x => x.Title.IndexOf(userNameToSearch) > -1);
         }
     }
 }

@@ -6,6 +6,23 @@
             <div class="row">
                 <div class="col-md-12">
                     <div>Search</div>
+                </div>
+                <div class="col-md-12 searchQueryGroup">
+                    <asp:TextBox runat="server" ID="SearchByUserName" placeholder="Search by UserName" />
+                    <asp:Button runat="server" CssClass="btn btn-primary" ID="SearchButton" OnClick="SearchButton_Click" Text="Search" />
+                </div>
+                <div class="col-md-12 searchQueyGroup">
+                <asp:Button runat="server" ID="OrderByDateAcs" Text="ByDateAsc" CssClass="btn btn-primary" />
+                <asp:Button runat="server" ID="OrderByDateDesc" Text="ByDateDesc" CssClass="btn btn-primary" />
+                <asp:Button runat="server" ID="OrderByLikes" Text="ByLikes" CssClass="btn btn-primary"/>
+                <asp:Button runat="server" ID="OrderByDislikes" Text="ByDislikes" CssClass="btn btn-primary"/>
+                <asp:RadioButton id="ShowOnlyMine" 
+                 Checked="False"
+                 GroupName="GroupName"
+                 Text="ShowOnlyYours"
+                 TextAlign="Left"
+                 OnCheckedChanged="ShowOnlyMine_CheckedChanged"
+                 runat="server"/>
 
                 </div>
             </div>

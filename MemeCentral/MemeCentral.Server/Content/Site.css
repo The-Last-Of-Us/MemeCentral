@@ -92,3 +92,7 @@ input[type="select"] {
     color:red;
     font-size:16px;
 }
+
+.searchQueyGroup{
+    margin:15px;
+}
