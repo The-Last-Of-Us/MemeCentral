@@ -29,6 +29,8 @@
                 this.Response.Redirect("/NotFound");
             }
 
+            this.CurrentUserId = meme.UserId;
+
             return meme;
         }
 
@@ -40,14 +42,15 @@
             meme.Comments.Add(comment);
             this.dbContext.SaveChanges();
 
-            // Visualise all the comments TODO
             var control = sender as CommentControl;
             control.Comments = meme.Comments.OrderByDescending(x => x.CreationDate).ToList();
         }
 
         protected List<Comment> GetComments(Meme item)
         {
-            return item.Comments.OrderByDescending(x => x.CreationDate).ToList();
+            return item.Comments
+                .OrderByDescending(x => x.CreationDate)
+                .ToList();
         }
 
         protected int GetLikes(Meme item)
@@ -128,6 +131,31 @@
             {
                 this.Response.Redirect("/");
             }
+        }
+
+        protected bool IsUserCreator()
+        {
+            var userID = this.User.Identity.GetUserId();
+            
+            var isUserOwner = this.CurrentUserId == userID;
+
+            return isUserOwner;
+        }
+
+        private string CurrentUserId
+        {
+            get
+            {
+                if (ViewState["CurrentUserId"] != null)
+                {
+                    return (string)(ViewState["CurrentUserId"]);
+                }
+                else
+                {
+                    return "NaN";
+                }
+            }
+            set { ViewState["CurrentUserId"] = value; }
         }
     }
 }

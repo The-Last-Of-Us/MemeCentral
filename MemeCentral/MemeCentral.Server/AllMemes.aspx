@@ -43,14 +43,9 @@
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
-            <div class="row">
-                <asp:Repeater ID="Pager" runat="server">
-                    <ItemTemplate>
-                        <asp:LinkButton ID="lnkPage" runat="server" Text='<%#Eval("Text") %>' CommandArgument='<%# Eval("Value") %>'
-                            CssClass='<%# Convert.ToBoolean(Eval("Enabled")) ? "page_enabled" : "page_disabled" %>'
-                            OnClick="Page_Changed" OnClientClick='<%# !Convert.ToBoolean(Eval("Enabled")) ? "return false;" : "" %>'></asp:LinkButton>
-                    </ItemTemplate>
-                </asp:Repeater>
+            <div class="row showMoreBtn">
+                <asp:Button runat="server" ID="ShowMore" OnClick="ButtonShowMore_Click"
+                     CssClas="btn btn-default text-center showMoreBtn" Text="Show More" />
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>
