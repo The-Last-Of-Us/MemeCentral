@@ -71,13 +71,12 @@
         protected void ButtonPrevious_Click(object sender, EventArgs e)
         {
 
-            NowViewing--;
 
         }
 
         protected void ButtonNext_Click(object sender, EventArgs e)
         {
-            NowViewing++;
+
 
         }
 
@@ -119,22 +118,6 @@
                 }
             }
             set { ViewState["PageNumber"] = value; }
-        }
-
-        private int NowViewing
-        {
-            get
-            {
-                object obj = ViewState["_NowViewing"];
-                if (obj == null)
-                    return 0;
-                else
-                    return (int)obj;
-            }
-            set
-            {
-                this.ViewState["_NowViewing"] = value;
-            }
         }
     }
 }
