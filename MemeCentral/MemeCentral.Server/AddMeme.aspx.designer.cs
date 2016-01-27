@@ -13,6 +13,15 @@ namespace MemeCentral.Server {
     public partial class AddMeme {
         
         /// <summary>
+        /// TitleFormGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel TitleFormGroup;
+        
+        /// <summary>
         /// Title control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace MemeCentral.Server {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Title;
+        
+        /// <summary>
+        /// MemeUrlFormGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel MemeUrlFormGroup;
         
         /// <summary>
         /// MemeUrl control.

@@ -6,22 +6,22 @@
         <legend>New Meme</legend>
         <div class="row">
             <div class="col-md-7">
-                 <div class="row form-group">
+                 <asp:Panel runat="server" ID="TitleFormGroup" CssClass="row form-group">
                     <div class="col-md-5">
-                        <asp:Label AssociatedControlID="Title">Title: </asp:Label>
+                        <asp:Label runat="server" AssociatedControlID="Title" CssClass="control-label">Title: </asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox runat="server" ID="Title" TextMode="SingleLine" CssClass="input-control" placeholder="Title"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="Title" TextMode="SingleLine" CssClass="form-control" placeholder="Title"></asp:TextBox>
                     </div>
-                </div>
-                <div class="row form-group">
+                </asp:Panel>
+                <asp:Panel runat="server" ID="MemeUrlFormGroup" CssClass="row form-group">
                     <div class="col-md-5">
-                        <asp:Label AssociatedControlID="MemeUrl">Meme Url :</asp:Label>
+                        <asp:Label runat="server" AssociatedControlID="MemeUrl"  CssClass="control-label">Meme Url :</asp:Label>
                     </div>
                     <div class="col-md-7">
-                        <asp:TextBox runat="server" ID="MemeUrl" TextMode="SingleLine" AutoPostBack="true" OnTextChanged="UpdateMemeImg" CssClass="input-control" placeholder="Meme Url"></asp:TextBox>
+                        <asp:TextBox runat="server" ID="MemeUrl" TextMode="SingleLine" AutoPostBack="true" OnTextChanged="UpdateMemeImg" CssClass="form-control" placeholder="Meme Url"></asp:TextBox>
                     </div>
-                </div>
+                </asp:Panel>
                 <asp:Button runat="server" ID="CreateButton" OnClick="CreateMeme" Text="Create" CssClass="btn btn-primary" />
             </div>
             <div class="col-md-5 text-right">

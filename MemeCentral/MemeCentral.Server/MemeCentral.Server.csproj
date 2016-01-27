@@ -423,6 +423,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MemeCentral.Common\MemeCentral.Common.csproj">
+      <Project>{fe82060d-af1a-45d6-a355-895e248889a2}</Project>
+      <Name>MemeCentral.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MemeCentral.Data\MemeCentral.Data.csproj">
       <Project>{ada87bc3-f464-4fb5-8255-532e5c5fbafd}</Project>
       <Name>MemeCentral.Data</Name>
