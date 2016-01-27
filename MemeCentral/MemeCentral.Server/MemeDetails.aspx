@@ -18,9 +18,10 @@
                 <uc:LikeControl runat="server" ID="LikeControl"
                 Likes="<%# GetLikes(Item) %>"
                 Dislikes="<%# GetDislikes(Item) %>"
+                UserHasVoted ="<%# HasUserVoted(Item) %>"
                 ItemId="<%# Item.Id %>"
                 OnLike="LikeControl_Like"
-                OnDislike="LikeControl_Dislike" />
+                OnDislike="LikeControl_Like" />
                 </div>
             </div>
                 <div class="row">
