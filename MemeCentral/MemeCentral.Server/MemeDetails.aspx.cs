@@ -63,6 +63,21 @@
                 .Count();
         }
 
+        protected bool HasUserVoted(Meme Item)
+        {
+            var userID = this.User.Identity.GetUserId();
+            var hasUserVoted = Item.Likes
+                .Where(x => x.UserId == userID)
+                .FirstOrDefault();
+
+            if(hasUserVoted == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         protected void LikeControl_Like(object sender, LikeEventArgs e)
         {
             var userID = this.User.Identity.GetUserId();
@@ -78,12 +93,15 @@
             {
                 rating.Value = false;
             }
+
             meme.Likes.Add(rating);
             this.dbContext.SaveChanges();
 
             var control = sender as LikeControl;
             control.Likes = this.GetLikes(meme);
             control.Dislikes = this.GetDislikes(meme);
+            control.UserHasVoted = true;
         }
+
     }
 }

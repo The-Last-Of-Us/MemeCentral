@@ -15,7 +15,7 @@
 
         public int ItemId { get; set; }
 
-        public int CurrentUserVote { get; set; }
+        public bool UserHasVoted { get; set; }
 
         public delegate void LikeEventHandler(object sender, LikeEventArgs e);
 
@@ -42,16 +42,16 @@
                 this.DislikesValue.Text = this.Dislikes.ToString();
             }
 
-            //if (this.CurrentUserVote > 0)
-            //{
-            //    this.ButtonLike.Visible = false;
-            //    this.ButtonDislike.Visible = true;
-            //}
-            //else if (this.CurrentUserVote < 0)
-            //{
-            //    this.ButtonLike.Visible = true;
-            //    this.ButtonDislike.Visible = false;
-            //}
+            if (this.UserHasVoted)
+            {
+                this.ButtonLike.Visible = false;
+                this.ButtonDislike.Visible = false;
+            }
+            else
+            {
+                this.ButtonLike.Visible = true;
+                this.ButtonDislike.Visible = true;
+            }
         }
 
         protected void ButtonLike_Command(object sender, CommandEventArgs e)

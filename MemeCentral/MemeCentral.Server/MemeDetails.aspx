@@ -18,6 +18,7 @@
                 <uc:LikeControl runat="server" ID="LikeControl"
                 Likes="<%# GetLikes(Item) %>"
                 Dislikes="<%# GetDislikes(Item) %>"
+                UserHasVoted ="<%# HasUserVoted(Item) %>"
                 ItemId="<%# Item.Id %>"
                 OnLike="LikeControl_Like"
                 OnDislike="LikeControl_Like" />
