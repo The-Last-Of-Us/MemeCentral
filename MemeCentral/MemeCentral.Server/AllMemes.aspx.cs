@@ -59,12 +59,6 @@
             this.AllMemesGrid.DataBind();
         }
 
-        protected void Page_Changed(object sender, EventArgs e)
-        {
-            int pageIndex = int.Parse((sender as LinkButton).CommandArgument);
-        }
-
-
         private int Skip
         {
             get
@@ -157,29 +151,25 @@
 
         protected void OrderByLikes_Click(object sender, EventArgs e)
         {
-            var button = sender as Button;
-            var cmdName = button.CommandName;
-            var isLikes = cmdName == "Likes" ? true : false;
-
-            if (isLikes)
-            {
-                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderBy(x => x.Likes.Count)
-                    .Skip(this.Skip)
-                    .Take(this.Take)
-                    .ToList();
-            }
-            else
-            {
-                this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderByDescending(x => x.Likes.Count)
-                    .Skip(this.Skip)
-                    .Take(this.Take)
-                    .ToList();
-            }
+            this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderByDescending(x => x.Likes.Count(like => like.Value))
+                .Skip(this.Skip)
+                .Take(this.Take)
+                .ToList();
 
             this.AllMemesGrid.DataBind();
         }
 
-        protected int GetLikes(Meme item)
+		protected void OrderByDisikes_Click(object sender, EventArgs e)
+		{
+			this.AllMemesGrid.DataSource = this.dbContext.Memes.OrderByDescending(x => x.Likes.Count(like => !like.Value))
+				.Skip(this.Skip)
+				.Take(this.Take)
+				.ToList();
+
+			this.AllMemesGrid.DataBind();
+		}
+
+		protected int GetLikes(Meme item)
         {
             return item.Likes.Where(x => x.Value == true)
                 .ToList()
