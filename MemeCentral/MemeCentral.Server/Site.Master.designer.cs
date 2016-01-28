@@ -13,6 +13,15 @@ namespace MemeCentral.Server {
     public partial class SiteMaster {
         
         /// <summary>
+        /// SiteMap control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMap;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

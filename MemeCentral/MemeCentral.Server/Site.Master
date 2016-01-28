@@ -15,6 +15,8 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css" />
     <link href="Content/custom.css" rel="stylesheet" />
+    
+    <asp:SiteMapDataSource runat="server" ID="SiteMap" />
 </head>
 <body>
     <form runat="server">
@@ -51,9 +53,16 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/AllMemes">All Memes</a></li>
-                        <li><a runat="server" href="~/AboutUs">About us</a></li>
+                         <asp:Repeater runat="server" DataSourceId="SiteMap" ItemType="System.Web.SiteMapNode">
+                            <ItemTemplate>
+                                 <li><a runat="server" href="<%#: Item.Url %>"><%#: Item.Title %></a></li>
+                                <asp:Repeater runat="server" DataSource="<%# Item.ChildNodes %>" ItemType="System.Web.SiteMapNode">
+                                    <ItemTemplate>
+                                            <li><a runat="server" href="<%#: Item.Url %>"><%#: Item.Title %></a></li>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </ItemTemplate>
+                         </asp:Repeater>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
@@ -79,6 +88,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
+                
                 <p>&copy; <%: DateTime.Now.Year %> - Telerik Academy, The last of us</p>
             </footer>
         </div>
