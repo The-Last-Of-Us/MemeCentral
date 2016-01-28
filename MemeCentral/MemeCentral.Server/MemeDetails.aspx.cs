@@ -22,6 +22,11 @@
         // or be decorated with a value provider attribute, e.g. [QueryString]int id
         public Meme MemeViewArticle_GetItem([QueryString("id")]int? id)
         {
+            var isUserLogged = this.User.Identity.IsAuthenticated;
+            if (!isUserLogged)
+            {
+                this.Response.Redirect("/Account/Login");
+            }
             var meme = this.dbContext.Memes.Where(x => x.Id == id).FirstOrDefault();
 
             if (id == null | meme == null)

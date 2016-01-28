@@ -8,6 +8,7 @@
     using Events;
     using Data.Models;
     using Data;
+    using Common;
 
     public partial class CommentControl : UserControl
     {
@@ -47,6 +48,11 @@
 
         protected void ButtonComment_Command(object sender, CommandEventArgs e)
         {
+            if(this.UserContent.Text.Length == 0 || this.UserContent.Text.Length > ValidationConstants.CommentMaxLength)
+            {
+                this.ErrMsg.Visible = true;
+                return;
+            }
             this.Comment(this, new CommentEventArgs(Convert.ToInt32(e.CommandArgument), this.UserContent.Text));
         }
 
