@@ -17,7 +17,7 @@
                    <% if (HttpContext.Current.User.IsInRole("admin") || IsUserCreator())
                    { %>
                 <div class="col-md-12 text-center">
-                    <asp:Button runat="server" ID="DeleteButton" CssClass="btn btn-danger" Text="Delete" CommandArgument="<%#: Item.Id %>" OnCommand="DeleteButton_Command" />
+                    <asp:Button runat="server" ID="DeleteButton" CssClass="btn btn-danger specialBtn" Text="Delete" CommandArgument="<%#: Item.Id %>" OnCommand="DeleteButton_Command" />
                 </div>
                 <% } %>
             </div>

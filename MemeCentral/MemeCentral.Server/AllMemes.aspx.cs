@@ -18,7 +18,7 @@
             if (!this.IsPostBack)
             {
                 this.Skip = 0;
-                this.Take = 10;
+                this.Take = 8;
                 this.Memes = this.dbContext.Memes
                     .OrderByDescending(x => x.CreationDate)
                     .Skip(this.Skip)
@@ -45,12 +45,16 @@
         protected void ButtonShowMore_Click(object sender, EventArgs e)
         {
             //this.Skip += 10;
-            this.Take += 10;
+            this.Take += 8;
             this.Memes = this.dbContext.Memes
                 .OrderByDescending(x => x.CreationDate)
                 .Skip(this.Skip)
                 .Take(this.Take)
                 .ToList();
+            if(this.Memes.Count < this.Take)
+            {
+                this.ShowMore.Enabled = false;
+            }
             this.AllMemesGrid.DataSource = this.Memes;
             this.AllMemesGrid.DataBind();
         }
