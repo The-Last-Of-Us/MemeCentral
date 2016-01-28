@@ -28,9 +28,9 @@
         <div class="col-md-8">
             <asp:Repeater runat="server" ID="AllMemesGrid" ItemType="MemeCentral.Data.Models.Meme">
                     <ItemTemplate>
-                        <div class="col-md-4 image-grid-container">
+                        <div class="col-md-3 image-grid-container">
                             <div class="col-md-12 text-center"><%#: Item.Title %></div>
-                            <asp:ImageButton ImageUrl="<%#: Item.ImageUrl %>" CssClass="memeImgDetail img-rounded" CommandName="Id" CommandArgument="<%#: Item.Id %>" runat="server" OnClick="Unnamed_Click" />
+                            <asp:ImageButton ImageUrl="<%#: Item.ImageUrl %>" CssClass="memeInGrid img-rounded" CommandName="Id" CommandArgument="<%#: Item.Id %>" runat="server" OnClick="Unnamed_Click" />
                             <div class="col-md-1 likeButton text-center">
                                 <asp:Label runat="server" ID="LikesValue" Text="<%# this.GetLikes(Item) %>" />
                             </div>
